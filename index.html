@@ -55,11 +55,6 @@
       50% { transform: translateY(-15px); }
     }
 
-    @keyframes shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-
     @keyframes glow {
       0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
       50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
@@ -115,7 +110,6 @@
       right: 0;
       bottom: 0;
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 25 L55 25 L40 38 L45 58 L30 45 L15 58 L20 38 L5 25 L25 25 Z' fill='%23D4AF37' fill-opacity='0.03'/%3E%3C/svg%3E");
-      animation: shimmer 20s linear infinite;
     }
 
     .ornament-top,
@@ -137,6 +131,7 @@
       max-width: 700px;
       position: relative;
       z-index: 1;
+      padding-bottom: 5rem;
     }
 
     .invitation-text {
@@ -447,45 +442,21 @@
     }
 
     .timeline {
-      max-width: 700px;
+      max-width: 650px;
       margin: 0 auto;
       position: relative;
     }
 
     .timeline::before {
-      content: '';
-      position: absolute;
-      left: 24px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, transparent, var(--gold), var(--gold), transparent);
-    }
-
-    @media (min-width: 640px) {
-      .timeline::before {
-        left: 50%;
-        transform: translateX(-50%);
-      }
+      display: none;
     }
 
     .timeline-item {
       display: flex;
       align-items: flex-start;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
       position: relative;
-    }
-
-    @media (min-width: 640px) {
-      .timeline-item {
-        gap: 4rem;
-      }
-      
-      .timeline-item:nth-child(even) {
-        flex-direction: row-reverse;
-        text-align: right;
-      }
     }
 
     .timeline-icon {
@@ -529,12 +500,12 @@
       font-size: 1.375rem;
       color: var(--cream);
       margin: 0.5rem 0;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .timeline-desc {
-      font-size: 1.125rem;
-      color: rgba(255, 248, 231, 0.7);
+      font-size: 1.1rem;
+      color: rgba(255, 248, 231, 0.85);
     }
 
     .quote-box {
@@ -591,15 +562,16 @@
     .location::after { bottom: 0; }
 
     .location-grid {
-      display: grid;
-      gap: 2rem;
-      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 650px;
       margin: 0 auto;
     }
 
     @media (min-width: 768px) {
       .location-grid {
-        grid-template-columns: 1fr 1fr;
+        /* single column */
       }
     }
 
@@ -660,7 +632,7 @@
     }
 
     .location-card p {
-      color: rgba(255, 248, 231, 0.7);
+      color: rgba(255, 248, 231, 0.85);
       margin-bottom: 1rem;
       line-height: 1.6;
     }
@@ -738,7 +710,7 @@
     }
 
     .transport-info {
-      max-width: 1000px;
+      max-width: 650px;
       margin: 2rem auto 0;
       background: linear-gradient(135deg, rgba(107, 31, 53, 0.4) 0%, rgba(74, 13, 31, 0.6) 100%);
       border: 1px solid rgba(212, 175, 55, 0.2);
@@ -773,7 +745,7 @@
     }
 
     .transport-grid p {
-      color: rgba(255, 248, 231, 0.7);
+      color: rgba(255, 248, 231, 0.85);
       line-height: 1.6;
     }
 
@@ -1285,7 +1257,6 @@
     </div>
     
     <div class="location-grid">
-      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
         <div class="location-card">
           <div class="location-card-header">
             <div class="location-icon">
@@ -1332,7 +1303,6 @@
             </div>
           </div>
         </div>
-      </div>
       
       <div class="map-placeholder">
         <div class="map-inner">
